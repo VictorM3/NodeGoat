@@ -83,6 +83,7 @@ jobs:
             cd nodegoat
             export SRCCLR_SCM_TOKEN=$github_api
             export SRCCLR_SCM_TYPE=GITHUB
+            export DEBUG=1
             git config --global user.email "$emailgit"
             git config --global user.name "$nomegit"            
             mkdir ~/.ssh
@@ -92,6 +93,7 @@ jobs:
             git remote show origin
             git checkout -f master
             git branch --set-upstream-to=origin/master
+            
             export EXTRA_ARGS='--update-advisor --pull-request'
             curl -sSL https://download.sourceclear.com/ci.sh | bash -s – scan $EXTRA_ARGS
 
