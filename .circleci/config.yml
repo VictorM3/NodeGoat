@@ -74,7 +74,7 @@ jobs:
       - image: cimg/openjdk:8.0.282-node
       #- image: maven:3.6.3-openjdk-8
       #- image: indigo/centos-maven:latest
-    working_directory: ~/repo
+    working_directory: ~/repo/nodegoat
     steps:
       # get the files from the previous job
       - attach_workspace:
@@ -104,6 +104,10 @@ jobs:
       - attach_workspace:
           at: .
       # Downlowad the scanner
+      - run: 
+          name: "Package for upload to Veracode"
+          #command: zip -r upload.zip nodegoat
+          command: zip -r upload.zip nodegoat -x *node_modules/*
       - run:
          name: "Download Veracode Pipeline Scan"
          command: |
