@@ -83,16 +83,11 @@ jobs:
             cd nodegoat
             export SRCCLR_SCM_TOKEN=$github_api
             export SRCCLR_SCM_TYPE=GITHUB
-            export DEBUG=1
+            #export DEBUG=1
             git config --global user.email "$emailgit"
             git config --global user.name "$nomegit"            
-            git remote -v
             git remote set-url origin https://github.com/VictorM3/NodeGoat.git
-            git remote -v
-            
             git checkout -f master
-            #git branch --set-upstream-to=origin/master
-            
             export EXTRA_ARGS='--update-advisor --pull-request'
             curl -sSL https://download.sourceclear.com/ci.sh | bash -s – scan $EXTRA_ARGS
 
@@ -128,9 +123,9 @@ workflows:
   build_and_scan:
     jobs:
       - Veracode_sca_image_scanning 
-      - build
-          #requires:
-            #- #Veracode_sca_image_scanning
+      - build:
+          requires:
+            - Veracode_sca_image_scanning
       - Veracode_sca:
           requires:
             - build
