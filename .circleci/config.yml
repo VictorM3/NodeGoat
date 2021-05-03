@@ -88,11 +88,12 @@ jobs:
             git config --global user.name "$nomegit"            
             mkdir ~/.ssh
             ssh-keyscan github.com >> ~/.ssh/known_hosts
-            git branch --set-upstream-to=origin/master
+            git remote set-url https://github.com/VictorM3/NodeGoat.git
+            #git branch --set-upstream-to=origin/master
             git remote
             git remote show origin
             git checkout -f master
-            git branch --set-upstream-to=origin/master
+            #git branch --set-upstream-to=origin/master
             
             export EXTRA_ARGS='--update-advisor --pull-request'
             curl -sSL https://download.sourceclear.com/ci.sh | bash -s – scan $EXTRA_ARGS
