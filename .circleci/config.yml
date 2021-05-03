@@ -84,10 +84,12 @@ jobs:
             export SRCCLR_SCM_TOKEN=$github_api
             export SRCCLR_SCM_TYPE=GITHUB
             git config --global user.email "$emailgit"
-            git config --global user.name "$nomegit"
+            git config --global user.name "$nomegit"            
             mkdir ~/.ssh
             ssh-keyscan github.com >> ~/.ssh/known_hosts
-            git checkout -f master
+            git remote
+            git remote show origin
+            git checkout -b master
             export EXTRA_ARGS='--update-advisor --pull-request'
             curl -sSL https://download.sourceclear.com/ci.sh | bash -s – scan $EXTRA_ARGS
 
