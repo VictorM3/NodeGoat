@@ -1,6 +1,6 @@
 #Steps:
 # Veracode Software Composition Analysis
-# Veracode Static Analysis Asynchronous Upload and Scan
+# Veracode Static Analysis Asynchronous Sandbox Scan
 # Veracode Static Analysis PipelineScan
 # Import flaws to Azure Boards
 version: 2.1
