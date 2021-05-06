@@ -46,8 +46,8 @@ jobs:
               -createprofile true 
               -version CircleCI-$CIRCLE_BUILD_NUM 
               -filepath upload.zip
-	            -sandboxname ${CIRCLE_BRANCH}
-	            -createsandbox true
+              -sandboxname ${CIRCLE_BRANCH}
+              -createsandbox true
  
  # job to upload to Veracode for Agent Based SCA image scanning
   Veracode_sca_image_scanning:
