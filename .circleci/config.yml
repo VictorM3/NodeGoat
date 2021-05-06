@@ -18,7 +18,7 @@ jobs:
           paths:
             - nodegoat
   # job to upload to Veracode for scanning
-  veracode_sast:
+  veracode_sast_sandbox_scan:
     # use a java-based image to run the Veracode API wrapper
     docker:
       - image: cimg/openjdk:8.0.282-node
@@ -131,7 +131,7 @@ workflows:
       - Veracode_sca:
           requires:
             - build
-      - veracode_sast:
+      - veracode_sast_sandbox_scan:
           requires:
             - build
       - Veracode_pipelinescan:
